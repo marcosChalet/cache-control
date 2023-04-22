@@ -12,7 +12,7 @@ export async function getServerSideProps(context: any) {
   const res = await fetch("https://api.adviceslip.com/advice");
   const advice = await res.json();
 
-  context.res.setHeader("Cache-Control", "max-age=86400");
+  context.res.setHeader("Cache-Control", "public, max-age=86400");
 
   return {
     props: { advice },
