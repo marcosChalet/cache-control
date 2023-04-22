@@ -8,7 +8,7 @@ async function getAdvice() {
   return data;
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   const res = await fetch("https://api.adviceslip.com/advice");
   const advice = await res.json();
 
@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Home({ advice }) {
+export default function Home({ advice }: any) {
   const { data: adviceSWR, error } = useSWR(url, getAdvice);
 
   if (error) return <div>error...</div>;
